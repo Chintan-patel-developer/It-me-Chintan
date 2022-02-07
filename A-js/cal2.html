@@ -1,0 +1,157 @@
+<html lang="en">
+
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="js/angular.min.js"></script>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #2e2e2e;
+        }
+
+        .container {
+            margin-top: 40px;
+            width: 270px;
+            padding: 10px;
+            border-radius: 22px;
+            background: #2e2e2e;
+            box-shadow: 6px 6px 12px #1c1c1c,
+                -6px -6px 12px #404040;
+
+        }
+
+        .box {
+            width: 100%;
+            /* border: black 1px solid; */
+            height: 50px;
+            text-align: right;
+            overflow: hidden;
+            padding-right: 10px;
+            font-size: 30px;
+            color: #f0f0f0;
+            border-radius: 14px;
+            background: #2e2e2e;
+            box-shadow: inset 6px 6px 12px #1c1c1c,
+                inset -6px -6px 12px #404040;
+        }
+
+        .col>input {
+            border: none;
+            margin: 4px 4px;
+            padding: 1px;
+            width: 50px;
+            color: #f0f0f0;
+            height: 50px;
+            font-size: 23px;
+            border-radius: 150px;
+            background: linear-gradient(145deg, #313131, #292929);
+            box-shadow: 6px 6px 12px #1c1c1c,
+                -6px -6px 12px #404040;
+        }
+
+        .col>input:hover {
+            border-radius: 150px;
+            background: linear-gradient(145deg, #292929, #313131);
+            box-shadow: 7px 7px 14px #1c1c1c,
+                -7px -7px 14px #404040;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container" ng-app="app1" ng-controller="calc">
+        <div class="box" ng-model="a" value="{{ans}}">{{ans}} </div>
+        <!-- <h1>Ans: <span>{{ans}}</span></h1> 
+         ng-model="C" ng-init="c=5-->
+        <div class="row">
+            <div class="col"> <br>
+                <input type=button value="C" ng-click="C('')">
+                <input type=button value="X" ng-bind="a" ng-click="X('')">
+                <input type=button value="%" ng-bind="a" ng-click="math('%')">
+                <input type=button value="/" ng-bind="a" ng-click="math('/')">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <input type=button value="7" ng-click="math('7')">
+                <input type=button value="8" ng-click="math('8')">
+                <input type=button value="9" ng-click="math('9')">
+                <input type=button value="*" ng-click="math('*')">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <input type=button value="4" ng-click="math('4')">
+                <input type=button value="5" ng-click="math('5')">
+                <input type=button value="6" ng-click="math('6')">
+                <input type=button value="-" ng-click="math('-')">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <input type=button value="1" ng-click="math('1')">
+                <input type=button value="2" ng-click="math('2')">
+                <input type=button value="3" ng-click="math('3')">
+                <input type=button value="+" ng-click="math('+')">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <input type=button value="😊" ng-click="C('😊')">
+                <input type=button value="0" ng-click="math('0')">
+                <input type=button value="." ng-click="math('.')">
+                <input type=button value="=" ng-click="e('=')">
+            </div>
+        </div>
+    </div>
+    <script>
+        var x = angular.module("app1", []);
+        x.controller("calc", function ($scope) {
+            $scope.ans = "";
+
+            $scope.math = function (value) {
+                $scope.ans += value;
+            };
+            $scope.C = function (value) {
+                // $scope.ans = value;
+                $scope.ans = "";
+            };
+            $scope.e = function (value) {
+                $scope.ans = eval($scope.ans);
+            };
+        });
+    </script>
+</body>
+
+</html>
+
+<script>
+     // $scope.c = function () {
+            //     var m = parseInt($scope.a);
+            //     var n = parseInt($scope.b);
+            //     $scope.ans = m - n;
+
+            // };
+
+            // $scope.sev = function () {
+            //     $scope.ans = 7;
+            // };
+            // $scope.add = function () {
+            //     $scope.ans = "+";
+            // };
+            // $scope.six = function () {
+            //     $scope.ans = 6;
+            // };
+</script>
