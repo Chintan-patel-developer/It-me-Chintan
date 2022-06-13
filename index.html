@@ -106,6 +106,9 @@
                 // $scope.ans = value;
                 $scope.ans = "";
             };
+            $scope.X = function (value) {
+                $scope.ans -= value;
+            };
             $scope.e = function (value) {
                 $scope.ans = eval($scope.ans);
             };
